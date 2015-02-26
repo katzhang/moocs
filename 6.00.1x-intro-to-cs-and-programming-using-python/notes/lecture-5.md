@@ -10,3 +10,13 @@ another way: recursive version: reduce a problem to a simpler version of the sam
 * mathematical induction: to prove a statement indexed on integers is true for all values of n: prove it is true for smallest n and an arbitrary value of n (n+1)
 * the classical recursive problem: factorial
 	* n! = 1 if n = 1, n! = n * (n-1) if n > 1
+	
+* power of recursion's examples: towers of hanoi (multiple subproblems); Fibonacci (multiple base cases)
+* solve non-numerical problem recursively: palindrome
+* "divide and conquer": solve a hard problem by breaking it into a set of sub-problems
+
+* global variables
+	* bound to the outermost scope
+	* use with care: it destroys locality of scope
+	* can be modified everywhere; break locality and error-probing
+	
