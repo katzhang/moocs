@@ -16,3 +16,16 @@ objects: compound data types
 	* compare: list1 is list2
 	
 * when we mutate a list (while iterating over it), we change its length but Python doesn't update counter
+
+* first class objects:
+	* have types
+	* can be an element in a data structure, like a list
+	* can appear in an expression, like an assignment statement
+	* can be an argument to a function
+* ints, floats, strings, lists and tuples and ...functions are all first class objects
+* particular useful to use functions as elements --> higher order programming
+* generalization of higher order functions: map
+* dictionaries: a generalization of lists, but now indices can be values of any immutable type
+	* <key, value>
+	* access value via key
+	* keys can be tuples (immutable), but not lists
