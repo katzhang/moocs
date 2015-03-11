@@ -31,10 +31,10 @@ class intSet(object):
         return '{' + ','.join([str(e) for e in self.vals]) + '}'
         
     def intersect(self, otherSet):
-        result = [];
+        result = intSet();
         for val in self.vals:
             if val in otherSet.vals:
-                result.append(val);
+                result.insert(val);
         return result;
         
     def __len__(self):
