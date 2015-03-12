@@ -25,6 +25,10 @@
 * print an object in Python: messy --> define a `__str__` method
 * check type of instances: `isinstance(instance, Class)`
 * adding other methods: first argument: self
+
+
+	
+
 	
 	
 	
