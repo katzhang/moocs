@@ -17,5 +17,22 @@
 * quick find (eager approach):
     * if in same component, have the same id
     * iterate over n objects -> quadratic algorithms, too expensive, don't scale
+* quick union (lazy approach):
+    * integer array id[] of size N
+    * interpretation: id[i] is parent of i
+    * root of i is id[id[id[]...]]
+    * union: when merging only change one value, union(p, q), q's root value's id becomes q's root value
+    * cost: trees can get too tall, finding becomes expensive
+* improvement 1: weighting
+    * to avoid tall trees, keep track of size of trees and balance by linking root of smaller tree to root of larger tree
+    (larger tree on top, smaller tree go below)
+    * path compression: id[i] = id[id[j]]
+    * weighted quick-union with path compression
+    
+    
+    
+    
+    
+
     
     
