@@ -45,6 +45,25 @@ import sys
 # and builds and returns a word/count dict for it.
 # Then print_words() and print_top() can just call the utility function.
 
+def read_file(filename):
+  file = open(filename)
+  wordcount = {}
+  for word in file.read().split():
+    word = word.lower()
+    if word not in wordcount:
+      wordcount[word] = 1
+    else:
+      wordcount[word] += 1
+  return wordcount
+
+def print_words(filename):
+  wordcount = read_file(filename)
+  for key in sorted(wordcount):
+    print key, ' ', wordcount[key]
+
+
+
+
 ###
 
 # This basic command line argument parsing code is provided and
@@ -63,6 +82,7 @@ def main():
   else:
     print 'unknown option: ' + option
     sys.exit(1)
+
 
 if __name__ == '__main__':
   main()
