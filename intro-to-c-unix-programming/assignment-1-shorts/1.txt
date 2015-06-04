@@ -1,0 +1,267 @@
+This is Google's cache of http://people.fas.harvard.edu/~lib113/hw/shorts/shorts.txt. It is a snapshot of the page as it appeared on Mar 25, 2015 21:28:39 GMT. The current page could have changed in the meantime. Learn more
+Tip: To quickly find your search term on this page, press Ctrl+F or ⌘-F (Mac) and use the find bar.
+
+Full version
+ 
+
+
+
+
+
+CSCI-E26                   Assignment 1       Some Short Programs
+_________________________________________________________________
+
+This assignment contains short exercises to introduce you to fea-
+tures of C, Unix, and the web.  Hand in a listing  and  a  sample
+run  of each program.  For problems based on examples from class,
+it is easier to copy programs than to retype them.  To copy,  for
+example,  the program hello6.c from the course account use:
+  cp ~lib113/lectures/lect02/5_Code/hello6.c   .
+The  final  dot  (it's  a  period)  is shorthand for `the current
+directory';  the prefix ~lib113 means `the home directory of  the
+account  called  lib113.'   This command copies the file hello6.c
+from the library account to your current directory.
+
+GETTING STARTED: What to Read
+
+Most of the problems on this assignment are based on sample  pro-
+grams  from  class  2.  These programs use ideas explained in the
+King textbook.  Therefore:
+a. Make sure  you  understand  completely  the  original  program
+before you modify it or extend it.
+b.  Chapters  2-9  of  King  should cover everything you need, so
+please refer to that before you start and if you have questions.
+c. The course website explains what we ask  you  to  submit  with
+your  solutions.  Please go to the website, click the Assignments
+link and read the Important Facts items.
+
+PROBLEM 0: Creating a Web Page
+
+The reference page  of  the  course  web  site  contains  a  link
+(http://www.fas.harvard.edu/~lib113/  )  to instructions for set-
+ting up a website.   Follow all the steps in  the  tutorial.   On
+the  README  file  you  submit, tell us the url for your website.
+The last part of the "Building a Website"  instructions  explains
+how  to create a hit counter.  You are asked to write a C program
+to do that and also to explain why the  solution  presented  will
+not  work perfectly all the time.  Please write the C program and
+also write, on your README file, an answer to the question  about
+multi-user problems.
+
+C Programming Style
+
+The  Assignments  link describes guidelines about the format of C
+programs.  Please use comments, clear indenting, meaningful vari-
+able  names,  modular  design.    King  recommends C programs use
+2-character tab stops.  We do not want 2-character tab stops;  it
+is  difficult  to read code with that setting.  Use at least four
+characters for each level of indent.
+
+PROBLEM 1: Removing Tags
+
+semi2tab2.c works fine, but it leaves the tag in the output.  (a)
+Write  a  C  program  called rmtags.c that reads a text file with
+semicolon-delimited tagged fields and removes the tags but leaves
+
+
+
+[version: 2014/09/11 20:34:25]                             page 1
+
+
+
+
+
+                                                     Assignment 1
+
+
+the semicolons.  Sample runs should look like:
+  $ ./rmtags < sched | head -2
+  002;i;m-f;5:25;midd./lakeville;middle
+  002;i;m-f;5:35;bridgewater;middle
+
+  $ ./rmtags < sched | ./semi2tab2 | head -2
+  002 i   m-f  5:25    midd./lakeville middle
+  002 i   m-f  5:35    bridgewater     middle
+Please  read the document about finite state machines on the web-
+page for this assignment.  This idea  will  help  you  with  this
+problem and will also help with other projects in the course.
+
+(b) What happens if you reverse the order to:
+   ./semi2tab2 < sched | ./rmtags
+(c)  Modify  rmtags.c  so it works before or after semi2tab2 in a
+pipeline.
+
+PROBLEM 2: while and for loops in C
+
+The text claims in chapter 6 that a for loop can be replaced by a
+while loop.   Make the following two changes to the hello6.c pro-
+gram from class:
+
+  a) Modify the repeat_a_message() function so  that  it  uses  a
+     while instead of a for.
+
+  b) Modify  the  is_all_digits()  function so that it uses a for
+     instead of a while.  Verify that the program still works.
+
+PROBLEM 3: Extracting Strings
+
+Strings in C are enclosed in regular quotation marks (").  If you
+wanted  to  internationalize  a  program, you would need to get a
+list of all the strings in the file so you could translate  them.
+For  this  problem, write a program called extract_strings.c that
+reads from standard input a C program and writes to standard out-
+put all the strings it finds, one string per line.
+Your program must handle quoted quotation marks.  That is, if you
+want to put a quotation mark in a string, you simply  precede  it
+with a backslash:
+  printf("He said \"Hello.\"");
+For example, input like:
+  char msg1[] = "Good morning\n", msg2[] = "bye";
+  char msg3[] = "He said \"hi\"";
+produces
+  Good morning\n
+  bye
+  He said \"hi\"
+The program is designed to be used as a filter:
+ ./extract_strings < myprog.c > string_list
+[Try running extract_strings on its own source code.]
+
+
+
+
+
+
+[version: 2014/09/11 20:34:25]                             page 2
+
+
+
+
+
+                                                     Assignment 1
+
+
+PROBLEM 4: Writing fold
+
+You  are probably familiar with word wrap, the process of fitting
+text into a fixed number of columns by moving to  the  next  line
+words that extend past a certain column position.
+
+The  Unix  tool  called fold is a word wrap filter.  Send in text
+and specify a column width as a command  line  option,  and  fold
+outputs  the same text with words wrapped to fit in the specified
+width.  For example:
+    fold -w 30 -s
+will read input and wrap it on spaces to 30 columns.
+
+Write a C program that  performs  this  operation.   The  program
+reads  from standard input and writes to standard output wrapping
+any words that would exceed the column width.
+
+Use a #define to set the wrap width to 30 columns.   What happens
+when  an  input word exceeds 30 columns?  See what fold does.  Do
+the same thing.  Note that fold leaves trailing spaces on lines.
+                  _____________________________
+Using the sched datafile: Problems 5-6  use  the  train  schedule
+data  file.   This file contains roughly 8000 lines.  Do not copy
+this file to your account.  Instead, make a link to the  file  by
+using the command (read about links in the Unix book):
+  ln   -s   ~lib113/sched   sched
+
+PROBLEM 5: Station Finder
+
+Some  travelers  may  be  uncertain  of the spelling of a station
+name.  Write a shell script, a CGI script, and an HTML form  that
+allow  a  user  to  type in a string to get a list of all station
+names that contain that string.  For example, if the  user  types
+in the string gr, the script replies with:
+
+   grafton
+   greenwood
+   kendal green
+
+Put this page on your website and include the address of the page
+on the homework you submit.  You will need to copy  the  qryparse
+program to your website.  Use
+
+   cp   ~lib113/src/qryparse   qryparse
+   chmod 755 qryparse
+
+When  you  call  qryparse  in your script, be sure to enclose the
+call in backward apostrophes (`) not in regular single  quotation
+marks (').  OR you can write eval $(./qryparse)  .
+PROBLEM 6: Cleaning/Searching Data
+
+Cleaning data is more important than processing data.  If a data-
+base contains incomplete,  inconsistent,  or  inaccurate  data  ,
+results   and  reports  will  be  incomplete,  inconsistent,  and
+
+
+
+[version: 2014/09/11 20:34:25]                             page 3
+
+
+
+
+
+                                                     Assignment 1
+
+
+inaccurate.  In class 3 we look at two programs to check the data
+file.   The  empties.c  program  finds  lines  that contain blank
+fields.  Incomplete.c finds lines missing fields.  In  this  part
+you will write two programs to look for other problems.
+
+a)  What  if  a  field  contains  the wrong sort of data?  The TI
+field, must contain a time in the correct format.  That  is,  the
+hours  part must be in the range of 0 to 23, and the minutes part
+must be a two-digit number in the range 00 to 59.  And these  two
+sections  must be separated by a colon.  Write a C program called
+badtime to find records containing errors in the TI  field.   The
+program reads from standard input and prints out only those lines
+that have incorrect values in the TI field.  Test it  with:  bad-
+time < sched
+b)  In  part  a,  you looked for invalid data format.  What about
+correct format but incorrect data?  Some train numbers  are  used
+on  more  than one train line.  For example, train 208 appears on
+the Haverhill line and also on the Lowell line.
+Write a shell script that finds all train numbers that appear  on
+more than one line.
+Then  go  to the mbta.com website to see if these duplicate train
+numbers are really errors or if there is some other explanation.
+Submit your script.  Also, put the list of duplicate numbers  and
+the  explanation  in the README file you submit with this assign-
+ment.
+____________________________
+NOTE: If you use any code from class, be sure to cite the  source
+and correct any -Wall warnings and potential memory overflows.
+SUBMITTING YOUR WORK:  Put all your source code, sample runs, and
+a README file in a directory in your account.  Then type
+   ~lib113/handin shorts
+
+This command sends copies of all the files in  the  directory  to
+the course account for grading.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[version: 2014/09/11 20:34:25]                             page 4
+
