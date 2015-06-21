@@ -1,12 +1,3 @@
-This is Google's cache of http://people.fas.harvard.edu/~lib113/hw/tt2ht/tt2ht.txt. It is a snapshot of the page as it appeared on Apr 17, 2015 22:17:14 GMT. The current page could have changed in the meantime. Learn more
-Tip: To quickly find your search term on this page, press Ctrl+F or ⌘-F (Mac) and use the find bar.
-
-Text-only version
- 
-
-
-
-
 
            Assignment 2: An HTML Table Generator
 
@@ -62,18 +53,6 @@ in this table contain the logname, the  terminal  name,  the
 month,  day,  and  time  when  that  user logged in, and the
 address or name of the machine from which the user  is  con-
 nected.   Various  command line options allow you to request
-
-
-
-revision: 23 Sep 2012 21:06                           page 1
-
-
-
-
-
-                                          assignment 2:tt2ht
-
-
 other information (type the command man who for details.)
 
 Consider another example, the ls command.  Used with the  -l
@@ -127,17 +106,6 @@ fstab , to learn  more about the command and its output.  If
 you  type  a  command and it just sits there, it is probably
 waiting for input.  Press Ctrl-D or  Ctrl-C  and  check  the
 manual page.
-
-
-
-
-revision: 23 Sep 2012 21:06                           page 2
-
-
-
-
-
-                                          assignment 2:tt2ht
 
 
 Sending Text Tables to a Web Browser
@@ -194,18 +162,6 @@ lowing example.
      cp ~lib113/hw/tt2ht/*.css .
 
 
-
-
-
-revision: 23 Sep 2012 21:06                           page 3
-
-
-
-
-
-                                          assignment 2:tt2ht
-
-
   b. Now, use an editor to create a file called  table1.html
      that contains:
              <html>
@@ -260,18 +216,6 @@ revision: 23 Sep 2012 21:06                           page 3
      ing  and vertical arrangement of C source code, indent-
      ing and vertical arrangement of  html  tags  helps  the
      writer  and  maintainer of the code see that things are
-
-
-
-revision: 23 Sep 2012 21:06                           page 4
-
-
-
-
-
-                                          assignment 2:tt2ht
-
-
      correct.
 
 
@@ -325,18 +269,6 @@ revision: 23 Sep 2012 21:06                           page 4
      describe in detail the appearance of each item on a web
      page.  A short, useful list to start with is at:
      http://www.htmlhelp.com/reference/css/properties.html
-
-
-
-
-revision: 23 Sep 2012 21:06                           page 5
-
-
-
-
-
-                                          assignment 2:tt2ht
-
 
   e. Experiment with the descriptions  in  the  style  sheet
      file  and  see how your changes affect the way the page
@@ -392,18 +324,6 @@ input is a text table (like the output of who) and the  out-
 put is an html table.
 You  will  write this tool so that it will read any text ta-
 ble, such as the output of many Unix tools, the contents  of
-
-
-
-revision: 23 Sep 2012 21:06                           page 6
-
-
-
-
-
-                                          assignment 2:tt2ht
-
-
 many  Unix  databases,  and  the  results of data processing
 (such as your work with the sched file) and send them  to  a
 web page in a nice-looking html table.
@@ -458,18 +378,6 @@ Note: the #!/bin/sh line must be the first line in the file.
 This program does not have to assign classes  or  attributes
 to  the  cells.   You  can  set the border, cellpadding, and
 cellspacing in the <table> tag, but you  don't  have  to  do
-
-
-
-revision: 23 Sep 2012 21:06                           page 7
-
-
-
-
-
-                                          assignment 2:tt2ht
-
-
 anything special about the cells.  That's later.
 
 Version 2: Flexible Formatting
@@ -524,18 +432,6 @@ The output from tt2ht2, given this input, is
      <tr>
         <td class='name'>hsieh></td>
         <td class='tty'>ttyp5</td>
-
-
-
-revision: 23 Sep 2012 21:06                           page 8
-
-
-
-
-
-                                          assignment 2:tt2ht
-
-
         <td>Sep</td>
         <td class='number'>25</td>
         ...
@@ -590,18 +486,6 @@ file called part4b.top containing:
       <table class='redbox'>
      </noprocess>
      <attributes>
-
-
-
-revision: 23 Sep 2012 21:06                           page 9
-
-
-
-
-
-                                          assignment 2:tt2ht
-
-
        class='name'
        class='tty'
 
@@ -656,18 +540,6 @@ Some datasets are semicolon-delimited.  In  particular,  the
 train  sched  data,  after  processing  by semi2tab2 is tab-
 delimited but has spaces in some of the station names  (e.g.
 "north station").
-
-
-
-revision: 23 Sep 2012 21:06                          page 10
-
-
-
-
-
-                                          assignment 2:tt2ht
-
-
 A  final enhancement to your program is to allow the user to
 specify the delimiter, just as the cut command provides  the
 -d option to specify the delimiter.
@@ -721,18 +593,6 @@ This behavior differs from the how the program handles white
 space in its usual mode.  In the usual mode
 
      abc     def          pqr     xyz
-
-
-
-
-revision: 23 Sep 2012 21:06                          page 11
-
-
-
-
-
-                                          assignment 2:tt2ht
-
 
 even, with its many spaces, is still only four items.
 
@@ -788,18 +648,6 @@ The parts of the assignment are:
 
   [4b]
      Show that your version of tt2ht2 works by using it with
-
-
-
-revision: 23 Sep 2012 21:06                          page 12
-
-
-
-
-
-                                          assignment 2:tt2ht
-
-
      a cgi program.  (5 points)
 
   [5]
