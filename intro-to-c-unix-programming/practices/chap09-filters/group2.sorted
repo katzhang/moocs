@@ -1,0 +1,8 @@
+adm:x:25:adm,daemon,listen
+bin:x:1:root,bin,daemon
+cron:x:16:cron
+dialout:x:19:root,henry
+ftp:x:50:
+lp:x:18:lp
+root:x:0:root
+users:x:100:henry,image,enquiry
