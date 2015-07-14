@@ -2,7 +2,8 @@
 // Description: Class for a database of Composer records
 
 #include <iostream>
-#include "Composer.h"
+#include "composer.h"
+using namespace std;
 
 const int kMaxComposers = 100;
 
@@ -21,4 +22,4 @@ class Database {
 		Composer composers_[kMaxComposers];
 		int next_slot_;
 
-}
+};

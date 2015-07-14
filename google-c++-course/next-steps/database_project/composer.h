@@ -1,7 +1,10 @@
 // composer.h
 // Description: the class for a Composer class
 
+#include <iostream>
+
 const int kDefaultRanking = 10;
+using namespace std;
 
 class Composer {
 	public:
@@ -32,4 +35,4 @@ class Composer {
 		string composer_genre_; // baroque, classical, romantic, etc.
 		string fact_;
 		int ranking_;
-}
+};
