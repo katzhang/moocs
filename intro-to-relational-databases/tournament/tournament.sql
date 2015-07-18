@@ -6,17 +6,35 @@
 -- You can write comments in this file by starting them with two dashes, like
 -- these lines here.
 
--- Create table 'players'
-CREATE TABLE players ( 
+CREATE TABLE Players (	
 	name TEXT,
-    playerId SERIAL
+	playerid SERIAL primary key
     );
 
--- Create table 'games'
-CREATE TABLE games (
-	player1 INTEGER,
-	player2 INTEGER,
-	winner INTEGER,
-	gameId SERIAL
+CREATE TABLE Matches (
+	playerid SERIAL references players(playerid),
+	opponentid SERIAL references players(playerid),
+	result TEXT,
+	matchid SERIAL primary key
 );
+
+
+-- Creates a view of wins count for each player
+CREATE VIEW WinsCount AS 
+	SELECT Players.playerid, COUNT(wonMatches) as num
+	FROM Players
+	LEFT JOIN (SELECT * FROM Matches WHERE result = 'win') as wonMatches
+	ON Players.playerid = wonMatches.playerid
+	GROUP BY Players.playerid;
+
+CREATE VIEW MatchesCount AS
+	SELECT Players.playerid, COUNT(Matches) as num
+	FROM Players
+	LEFT JOIN Matches
+	ON Players.playerid = Matches.playerid
+	GROUP BY Players.playerid;
+
+
+
+
 
